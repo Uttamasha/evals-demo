@@ -6,10 +6,10 @@ SEARCH_FLIGHTS = {
     "input_schema": {
         "type": "object",
         "properties": {
-            "destination": {"type": "string", "description": "City or airport code."},
+            "dest": {"type": "string", "description": "City or airport code."},
             "date": {"type": "string", "description": "Departure date, e.g. 2026-06-15."},
         },
-        "required": ["destination"],
+        "required": ["dest"],
     },
 }
 
