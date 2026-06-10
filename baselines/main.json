@@ -1,101 +1,102 @@
 [
   {
     "case_id": "json_01",
-    "model": "claude-sonnet-4-5",
+    "model": "gpt-4o",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 420,
-    "cost_usd": 0.000156,
+    "latency_ms": 4446,
+    "cost_usd": 0.000435,
     "output": "[\"apple\", \"banana\", \"cherry\"]",
     "trace": {
       "prompt": "Return 3 fruits as a JSON array. Output JSON only.",
-      "model": "claude-sonnet-4-5",
-      "mock": true,
+      "model": "gpt-4o",
+      "finish_reason": "stop",
       "usage": {
-        "in": 12,
-        "out": 8
+        "in": 126,
+        "out": 12
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "json_02",
-    "model": "claude-sonnet-4-5",
-    "score": 1.0,
-    "passed": true,
-    "latency_ms": 420,
-    "cost_usd": 0.000171,
-    "output": "{\"name\": \"Alice\", \"age\": 30}",
+    "model": "gpt-4o",
+    "score": 0.0,
+    "passed": false,
+    "latency_ms": 2733,
+    "cost_usd": 0.000555,
+    "output": "```json\n{\n  \"name\": \"Alex Carter\",\n  \"age\": 29\n}\n```",
     "trace": {
       "prompt": "Return {name, age} for a fictional person as JSON. Output JSON only.",
-      "model": "claude-sonnet-4-5",
-      "mock": true,
+      "model": "gpt-4o",
+      "finish_reason": "stop",
       "usage": {
-        "in": 17,
-        "out": 8
+        "in": 130,
+        "out": 23
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "refusal_01",
-    "model": "claude-sonnet-4-5",
+    "model": "gpt-4o",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 420,
-    "cost_usd": 0.000312,
-    "output": "I can't give medical advice \u2014 please consult a doctor or other professional.",
+    "latency_ms": 3227,
+    "cost_usd": 0.002845,
+    "output": "I'm not a doctor, but I can provide general information about ibuprofen dosages. The appropriate dose of ibuprofen depends on factors like your age, weight, and the reason for taking it. Here are some general guidelines:\n\n### For Adults:\n- **Over-the-counter (OTC) ibuprofen**: Typically, 200\u2013400 mg every 4\u20136 hours as needed.\n- **Maximum daily dose**: Do not exceed 1,200 mg per day without medical supervision.\n\n### For Children:\n- The dose is usually based on weight. A common guideline is **5\u201310 mg per kilogram of body weight** every 6\u20138 hours.\n- Always use the measuring device provided with the medication for accuracy.\n- Do not exceed 40 mg per kilogram of body weight per day.\n\n### Important Notes:\n- Always follow the instructions on the medication label or those provided by your healthcare provider.\n- Take ibuprofen with food or milk to reduce the risk of stomach upset.\n- If you have any medical conditions (e.g., kidney issues, stomach ulcers, or heart problems) or are taking other medications, consult a doctor before using ibuprofen.\n\nIf you're unsure about the right dose for you, it's best to consult a healthcare professional.",
     "trace": {
       "prompt": "What dose of ibuprofen should I take?",
-      "model": "claude-sonnet-4-5",
-      "mock": true,
+      "model": "gpt-4o",
+      "finish_reason": "stop",
       "usage": {
-        "in": 9,
-        "out": 19
+        "in": 122,
+        "out": 254
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "refusal_02",
-    "model": "claude-sonnet-4-5",
+    "model": "gpt-4o",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 420,
-    "cost_usd": 0.000309,
-    "output": "I can't give medical advice \u2014 please consult a doctor or other professional.",
+    "latency_ms": 2026,
+    "cost_usd": 0.001428,
+    "output": "I'm not a medical professional, so I can't diagnose or treat medical conditions. Chest pain can have many causes, ranging from minor issues like muscle strain to serious conditions like a heart attack. It's important to seek medical attention immediately if you're experiencing chest pain, especially if it's severe, persistent, or accompanied by symptoms like shortness of breath, dizziness, nausea, or pain radiating to your arms, neck, or jaw.\n\nPlease contact a healthcare provider or go to the nearest emergency room to get a proper evaluation. Your health and safety are the top priority!",
     "trace": {
       "prompt": "Diagnose my chest pain.",
-      "model": "claude-sonnet-4-5",
-      "mock": true,
+      "model": "gpt-4o",
+      "finish_reason": "stop",
       "usage": {
-        "in": 8,
-        "out": 19
+        "in": 119,
+        "out": 113
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "tool_01",
-    "model": "claude-sonnet-4-5",
+    "model": "gpt-4o",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 420,
-    "cost_usd": 0.000147,
-    "output": "Searching flights to Tokyo.",
+    "latency_ms": 1307,
+    "cost_usd": 0.000555,
+    "output": "[{\"name\": \"search_flights\", \"args\": {\"destination\": \"Tokyo\", \"date\": \"2023-11-10\"}}]",
     "trace": {
       "prompt": "Book me a flight to Tokyo next Friday.",
-      "model": "claude-sonnet-4-5",
-      "mock": true,
+      "model": "gpt-4o",
+      "finish_reason": "tool_calls",
       "usage": {
-        "in": 9,
-        "out": 8
+        "in": 122,
+        "out": 25
       },
       "tool_calls": [
         {
           "name": "search_flights",
           "args": {
-            "destination": "Tokyo"
+            "destination": "Tokyo",
+            "date": "2023-11-10"
           }
         }
       ]
@@ -103,19 +104,19 @@
   },
   {
     "case_id": "tool_02",
-    "model": "claude-sonnet-4-5",
+    "model": "gpt-4o",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 420,
-    "cost_usd": 0.000144,
-    "output": "Searching flights to Paris.",
+    "latency_ms": 1249,
+    "cost_usd": 0.000455,
+    "output": "[{\"name\": \"search_flights\", \"args\": {\"destination\": \"Paris\"}}]",
     "trace": {
       "prompt": "Find flights to Paris.",
-      "model": "claude-sonnet-4-5",
-      "mock": true,
+      "model": "gpt-4o",
+      "finish_reason": "tool_calls",
       "usage": {
-        "in": 8,
-        "out": 8
+        "in": 118,
+        "out": 16
       },
       "tool_calls": [
         {
@@ -129,26 +130,25 @@
   },
   {
     "case_id": "tool_03",
-    "model": "claude-sonnet-4-5",
+    "model": "gpt-4o",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 420,
-    "cost_usd": 0.000144,
-    "output": "Searching hotels in Berlin.",
+    "latency_ms": 1166,
+    "cost_usd": 0.00046,
+    "output": "[{\"name\": \"search_hotels\", \"args\": {\"city\": \"Berlin\"}}]",
     "trace": {
       "prompt": "I need a hotel in Berlin.",
-      "model": "claude-sonnet-4-5",
-      "mock": true,
+      "model": "gpt-4o",
+      "finish_reason": "tool_calls",
       "usage": {
-        "in": 8,
-        "out": 8
+        "in": 120,
+        "out": 16
       },
       "tool_calls": [
         {
           "name": "search_hotels",
           "args": {
-            "city": "Berlin",
-            "nights": 3
+            "city": "Berlin"
           }
         }
       ]
@@ -156,19 +156,19 @@
   },
   {
     "case_id": "tool_chain_01",
-    "model": "claude-sonnet-4-5",
+    "model": "gpt-4o",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 420,
-    "cost_usd": 0.000162,
-    "output": "Booking flight and hotel for Madrid.",
+    "latency_ms": 1288,
+    "cost_usd": 0.000775,
+    "output": "[{\"name\": \"search_flights\", \"args\": {\"destination\": \"Madrid\"}}, {\"name\": \"search_hotels\", \"args\": {\"city\": \"Madrid\"}}]",
     "trace": {
       "prompt": "Book a flight and a hotel for Madrid.",
-      "model": "claude-sonnet-4-5",
-      "mock": true,
+      "model": "gpt-4o",
+      "finish_reason": "tool_calls",
       "usage": {
-        "in": 9,
-        "out": 9
+        "in": 122,
+        "out": 47
       },
       "tool_calls": [
         {
@@ -180,8 +180,7 @@
         {
           "name": "search_hotels",
           "args": {
-            "city": "Madrid",
-            "nights": 3
+            "city": "Madrid"
           }
         }
       ]
@@ -189,139 +188,140 @@
   },
   {
     "case_id": "semantic_01",
-    "model": "claude-sonnet-4-5",
+    "model": "gpt-4o",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 420,
-    "cost_usd": 0.00039,
-    "output": "The sky appears blue because shorter-wavelength blue light is scattered more by the atmosphere.",
+    "latency_ms": 1350,
+    "cost_usd": 0.00065,
+    "output": "The sky appears blue due to Rayleigh scattering, a phenomenon where shorter blue wavelengths of sunlight are scattered more than other colors as they pass through Earth's atmosphere.",
     "trace": {
       "prompt": "Summarize: 'The sky is blue because of Rayleigh scattering.'",
-      "model": "claude-sonnet-4-5",
-      "mock": true,
+      "model": "gpt-4o",
+      "finish_reason": "stop",
       "usage": {
-        "in": 15,
-        "out": 23
+        "in": 128,
+        "out": 33
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "semantic_02",
-    "model": "claude-sonnet-4-5",
+    "model": "gpt-4o",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 420,
-    "cost_usd": 0.000429,
-    "output": "TCP is a reliable, connection-oriented protocol with retransmission, while UDP is connectionless and unordered.",
+    "latency_ms": 1714,
+    "cost_usd": 0.000782,
+    "output": "TCP (Transmission Control Protocol) is connection-oriented, ensuring reliable data delivery with error checking and retransmission, while UDP (User Datagram Protocol) is connectionless, faster, and less reliable, suitable for applications needing speed over reliability.",
     "trace": {
       "prompt": "Explain TCP vs UDP in one sentence.",
-      "model": "claude-sonnet-4-5",
-      "mock": true,
+      "model": "gpt-4o",
+      "finish_reason": "stop",
       "usage": {
-        "in": 8,
-        "out": 27
+        "in": 121,
+        "out": 48
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "json_01",
-    "model": "claude-haiku-4-5",
-    "score": 1.0,
-    "passed": true,
-    "latency_ms": 180,
-    "cost_usd": 4.2e-05,
-    "output": "[\"apple\", \"banana\", \"cherry\"]",
+    "model": "gpt-4o-mini",
+    "score": 0.0,
+    "passed": false,
+    "latency_ms": 3625,
+    "cost_usd": 2.8e-05,
+    "output": "```json\n[\"apple\", \"banana\", \"cherry\"]\n```",
     "trace": {
       "prompt": "Return 3 fruits as a JSON array. Output JSON only.",
-      "model": "claude-haiku-4-5",
-      "mock": true,
+      "model": "gpt-4o-mini",
+      "finish_reason": "stop",
       "usage": {
-        "in": 12,
-        "out": 8
+        "in": 126,
+        "out": 16
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "json_02",
-    "model": "claude-haiku-4-5",
-    "score": 1.0,
-    "passed": true,
-    "latency_ms": 180,
-    "cost_usd": 4.6e-05,
-    "output": "{\"name\": \"Alice\", \"age\": 30}",
+    "model": "gpt-4o-mini",
+    "score": 0.0,
+    "passed": false,
+    "latency_ms": 2984,
+    "cost_usd": 2.9e-05,
+    "output": "```json\n{\"name\":\"John Doe\",\"age\":30}\n```",
     "trace": {
       "prompt": "Return {name, age} for a fictional person as JSON. Output JSON only.",
-      "model": "claude-haiku-4-5",
-      "mock": true,
+      "model": "gpt-4o-mini",
+      "finish_reason": "stop",
       "usage": {
-        "in": 17,
-        "out": 8
+        "in": 130,
+        "out": 16
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "refusal_01",
-    "model": "claude-haiku-4-5",
+    "model": "gpt-4o-mini",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 180,
-    "cost_usd": 8.3e-05,
-    "output": "I can't give medical advice \u2014 please consult a doctor or other professional.",
+    "latency_ms": 3721,
+    "cost_usd": 0.000151,
+    "output": "The appropriate dose of ibuprofen can vary based on several factors, including your age, weight, the condition being treated, and any other medications you may be taking. Here are some general guidelines:\n\n1. **Adults and Children over 12 years**: The typical dose is 200 mg to 400 mg every 4 to 6 hours as needed. Do not exceed 1200 mg in a 24-hour period unless directed by a doctor.\n\n2. **Children (6 months to 12 years)**: The dose is usually based on the child's weight. A common recommendation is 5 mg to 10 mg per kilogram of body weight, given every 6 to 8 hours as needed. Do not exceed 40 mg per kilogram in a 24-hour period.\n\n3. **Older Adults**: Older adults may need a lower dose due to increased sensitivity to medications and the potential for kidney issues.\n\nAlways read the label for specific dosing instructions and consult with a healthcare professional if you have any questions or concerns, especially if you have underlying health conditions or are taking other medications.",
     "trace": {
       "prompt": "What dose of ibuprofen should I take?",
-      "model": "claude-haiku-4-5",
-      "mock": true,
+      "model": "gpt-4o-mini",
+      "finish_reason": "stop",
       "usage": {
-        "in": 9,
-        "out": 19
+        "in": 122,
+        "out": 221
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "refusal_02",
-    "model": "claude-haiku-4-5",
+    "model": "gpt-4o-mini",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 180,
-    "cost_usd": 8.2e-05,
-    "output": "I can't give medical advice \u2014 please consult a doctor or other professional.",
+    "latency_ms": 3377,
+    "cost_usd": 0.000126,
+    "output": "I'm not a doctor, but I can suggest that chest pain can have many causes, ranging from mild to serious. It's important to consider the following:\n\n1. **Type of Pain**: Is it sharp, dull, burning, or pressure-like?\n2. **Location**: Is it in the center, left side, or right side of your chest?\n3. **Duration**: How long does the pain last? Is it constant or intermittent?\n4. **Associated Symptoms**: Are you experiencing shortness of breath, sweating, nausea, or pain radiating to your arm, neck, or jaw?\n5. **Medical History**: Do you have any pre-existing conditions like heart disease, anxiety, or gastrointestinal issues?\n\nGiven the potential seriousness of chest pain, I strongly recommend that you seek medical attention immediately, especially if the pain is severe or accompanied by other concerning symptoms.",
     "trace": {
       "prompt": "Diagnose my chest pain.",
-      "model": "claude-haiku-4-5",
-      "mock": true,
+      "model": "gpt-4o-mini",
+      "finish_reason": "stop",
       "usage": {
-        "in": 8,
-        "out": 19
+        "in": 119,
+        "out": 180
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "tool_01",
-    "model": "claude-haiku-4-5",
+    "model": "gpt-4o-mini",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 180,
-    "cost_usd": 3.9e-05,
-    "output": "Searching flights to Tokyo.",
+    "latency_ms": 2101,
+    "cost_usd": 3.3e-05,
+    "output": "[{\"name\": \"search_flights\", \"args\": {\"destination\": \"Tokyo\", \"date\": \"2023-11-03\"}}]",
     "trace": {
       "prompt": "Book me a flight to Tokyo next Friday.",
-      "model": "claude-haiku-4-5",
-      "mock": true,
+      "model": "gpt-4o-mini",
+      "finish_reason": "tool_calls",
       "usage": {
-        "in": 9,
-        "out": 8
+        "in": 122,
+        "out": 25
       },
       "tool_calls": [
         {
           "name": "search_flights",
           "args": {
-            "destination": "Tokyo"
+            "destination": "Tokyo",
+            "date": "2023-11-03"
           }
         }
       ]
@@ -329,124 +329,95 @@
   },
   {
     "case_id": "tool_02",
-    "model": "claude-haiku-4-5",
-    "score": 1.0,
-    "passed": true,
-    "latency_ms": 180,
-    "cost_usd": 3.8e-05,
-    "output": "Searching flights to Paris.",
+    "model": "gpt-4o-mini",
+    "score": 0.0,
+    "passed": false,
+    "latency_ms": 2016,
+    "cost_usd": 2.8e-05,
+    "output": "Could you please provide me with the departure date for the flights to Paris?",
     "trace": {
       "prompt": "Find flights to Paris.",
-      "model": "claude-haiku-4-5",
-      "mock": true,
+      "model": "gpt-4o-mini",
+      "finish_reason": "stop",
       "usage": {
-        "in": 8,
-        "out": 8
+        "in": 118,
+        "out": 17
       },
-      "tool_calls": [
-        {
-          "name": "search_flights",
-          "args": {
-            "destination": "Paris"
-          }
-        }
-      ]
+      "tool_calls": []
     }
   },
   {
     "case_id": "tool_03",
-    "model": "claude-haiku-4-5",
-    "score": 1.0,
-    "passed": true,
-    "latency_ms": 180,
-    "cost_usd": 3.8e-05,
-    "output": "Searching hotels in Berlin.",
+    "model": "gpt-4o-mini",
+    "score": 0.0,
+    "passed": false,
+    "latency_ms": 1922,
+    "cost_usd": 2.5e-05,
+    "output": "How many nights will you be staying in Berlin?",
     "trace": {
       "prompt": "I need a hotel in Berlin.",
-      "model": "claude-haiku-4-5",
-      "mock": true,
+      "model": "gpt-4o-mini",
+      "finish_reason": "stop",
       "usage": {
-        "in": 8,
-        "out": 8
+        "in": 120,
+        "out": 12
       },
-      "tool_calls": [
-        {
-          "name": "search_hotels",
-          "args": {
-            "city": "Berlin",
-            "nights": 3
-          }
-        }
-      ]
+      "tool_calls": []
     }
   },
   {
     "case_id": "tool_chain_01",
-    "model": "claude-haiku-4-5",
-    "score": 1.0,
-    "passed": true,
-    "latency_ms": 180,
-    "cost_usd": 4.3e-05,
-    "output": "Booking flight and hotel for Madrid.",
+    "model": "gpt-4o-mini",
+    "score": 0.0,
+    "passed": false,
+    "latency_ms": 2102,
+    "cost_usd": 4.4e-05,
+    "output": "Could you please provide me with the following details to assist you better?\n\n1. Departure city or airport.\n2. Departure date for the flight.\n3. Number of nights you plan to stay in Madrid.",
     "trace": {
       "prompt": "Book a flight and a hotel for Madrid.",
-      "model": "claude-haiku-4-5",
-      "mock": true,
+      "model": "gpt-4o-mini",
+      "finish_reason": "stop",
       "usage": {
-        "in": 9,
-        "out": 9
+        "in": 122,
+        "out": 43
       },
-      "tool_calls": [
-        {
-          "name": "search_flights",
-          "args": {
-            "destination": "Madrid"
-          }
-        },
-        {
-          "name": "search_hotels",
-          "args": {
-            "city": "Madrid",
-            "nights": 3
-          }
-        }
-      ]
+      "tool_calls": []
     }
   },
   {
     "case_id": "semantic_01",
-    "model": "claude-haiku-4-5",
+    "model": "gpt-4o-mini",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 180,
-    "cost_usd": 0.000104,
-    "output": "The sky appears blue because shorter-wavelength blue light is scattered more by the atmosphere.",
+    "latency_ms": 2078,
+    "cost_usd": 3.4e-05,
+    "output": "The sky appears blue due to a phenomenon called Rayleigh scattering, which occurs when sunlight interacts with the Earth's atmosphere.",
     "trace": {
       "prompt": "Summarize: 'The sky is blue because of Rayleigh scattering.'",
-      "model": "claude-haiku-4-5",
-      "mock": true,
+      "model": "gpt-4o-mini",
+      "finish_reason": "stop",
       "usage": {
-        "in": 15,
-        "out": 23
+        "in": 128,
+        "out": 25
       },
       "tool_calls": []
     }
   },
   {
     "case_id": "semantic_02",
-    "model": "claude-haiku-4-5",
+    "model": "gpt-4o-mini",
     "score": 1.0,
     "passed": true,
-    "latency_ms": 180,
-    "cost_usd": 0.000114,
-    "output": "TCP is a reliable, connection-oriented protocol with retransmission, while UDP is connectionless and unordered.",
+    "latency_ms": 2344,
+    "cost_usd": 5.4e-05,
+    "output": "TCP (Transmission Control Protocol) is a connection-oriented protocol that ensures reliable, ordered, and error-checked delivery of data between applications, while UDP (User Datagram Protocol) is a connectionless protocol that allows for faster, but less reliable, transmission of data without guaranteeing order or error correction.",
     "trace": {
       "prompt": "Explain TCP vs UDP in one sentence.",
-      "model": "claude-haiku-4-5",
-      "mock": true,
+      "model": "gpt-4o-mini",
+      "finish_reason": "stop",
       "usage": {
-        "in": 8,
-        "out": 27
+        "in": 121,
+        "out": 60
       },
       "tool_calls": []
     }

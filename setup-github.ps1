@@ -43,9 +43,9 @@ git push -u origin main
 git push -u origin demo/broken-tool
 
 # --- Set the API key secret --------------------------------------------------
-Write-Host "==> Setting ANTHROPIC_API_KEY repo secret" -ForegroundColor Cyan
-Write-Host "    Paste your Anthropic API key when prompted (input is hidden):" -ForegroundColor Yellow
-gh secret set ANTHROPIC_API_KEY --repo $fullName
+Write-Host "==> Setting GITHUB_MODELS_TOKEN repo secret" -ForegroundColor Cyan
+Write-Host "    Paste your GitHub Models PAT when prompted (input is hidden):" -ForegroundColor Yellow
+gh secret set GITHUB_MODELS_TOKEN --repo $fullName
 
 # --- Branch protection -------------------------------------------------------
 Write-Host "==> Enabling branch protection on main (require fast-suite)" -ForegroundColor Cyan

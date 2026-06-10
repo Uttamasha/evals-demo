@@ -22,13 +22,21 @@ RESULTS_PATH = Path("results/latest.json")
 GOLDEN_PATH = "golden_set.jsonl"
 
 MODEL_IDS = {
-    "sonnet": "claude-sonnet-4-5",
-    "haiku":  "claude-haiku-4-5",
+    "sonnet": "gpt-4o",       # keep CLI keys "sonnet"/"haiku" for muscle memory;
+    "haiku":  "gpt-4o-mini",  # they map to GitHub Models IDs under the hood.
 }
 
 
 def _short(mid: str) -> str:
-    return "haiku" if "haiku" in mid else "sonnet" if "sonnet" in mid else mid
+    if "mini" in mid:
+        return "mini"
+    if mid == "gpt-4o":
+        return "gpt-4o"
+    if "haiku" in mid:
+        return "haiku"
+    if "sonnet" in mid:
+        return "sonnet"
+    return mid
 
 
 def _print_per_model_summary(results: list[dict]) -> None:
